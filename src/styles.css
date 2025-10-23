@@ -19,16 +19,36 @@ input {
     min-width: 0;
     flex-shrink: 1;
 }
+form button {
+    flex-shrink: 0;
+    background-image: url("img/search.svg");
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 4rem;
 
+    cursor:pointer;
+}   
+
+form button:hover {
+    background-color: darkgray;
+}
+
+form img {
+    display: block;
+    height: 100%;
+}
 
 main {
-    padding: 10em;
-    height: 90vh;
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
 }
 
 .weather {
     display: grid;
-    grid-template-columns: repeat(2, min(50%, 150px));
+    grid-template-columns: repeat(2, minmax(50%, 150px));
     grid-template-rows: repeat(3, minmax(150px, 33%));
     justify-content: center;
 }
@@ -39,7 +59,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1em;
+    gap: 1rem;
+    padding: 0 1rem;
 }
 
 #city {
@@ -69,11 +90,10 @@ main {
     grid-template-rows: repeat(2, 50%);
 }
 
-.weather > img {
-    grid-column: 2;
-    grid-row: span 2;
-    background-color: blueviolet;
-    height: 100%;
+
+.more img {
+    height: 2rem;
+    width: 2rem;
 }
 
 .description {
