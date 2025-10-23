@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather</title>
 </head>
 <body>
-    
+    <header>
+        <form>
+            <div>
+                <input id="city" name="city" placeholder="City">
+                <button type="submit"><img alt="search"></button>
+            </div>
+            <p class="error-message">Error</p>
+        </form>
+    </header>
+    <main>
+        <div class="content">
+            <div class="weather">
+                <div class="information">
+                    <span id="city">Warsaw</span>
+                    <span id="sky">Cloudy</span>
+                </div>
+                <span class="temperature center-box">26*C</span>
+                <div class="more">
+                    <span class="center-box"><img>25*C</span>
+                    <span class="center-box"><img>76%</span>
+                    <span class="center-box"><img>2mm</span>
+                    <span class="center-box"><img>2km/h</span>
+                </div>
+                <img>
+                <p class="description"></p>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
