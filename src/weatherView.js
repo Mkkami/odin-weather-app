@@ -6,7 +6,14 @@ import tempImg from './img/thermometer.svg';
 
 let imgArr = [tempImg, humidityImg, rainImg, windImg ];
 
-export function createWeatherCard(city, sky, temp, more, description) {
+export default function updateWeatherCard(weather) {
+    if (!document.querySelector(".weather")) {
+        createWeatherCard();
+    }
+    setWeatherData(document.querySelector(".weather"), ...weather);
+}
+
+function createWeatherCard() {
 
     const weatherDiv = document.createElement("div")
     weatherDiv.classList.add("weather");
@@ -19,32 +26,32 @@ export function createWeatherCard(city, sky, temp, more, description) {
     citySpan.id = "city";
     skySpan.id = "sky";
 
-    citySpan.textContent = city;
-    skySpan.textContent = sky;
-
     informationDiv.appendChild(citySpan);
     informationDiv.appendChild(skySpan);
 
     const tempSpan = document.createElement("span");
     tempSpan.classList.add("temperature", "center-box");
-    tempSpan.textContent = `${temp}°C`
+
 
     const moreDiv = document.createElement("div");
     moreDiv.classList.add("more");
-
-    
     
     for (let i = 0; i < 4; i++) {
         let elem = document.createElement("span");
         elem.classList.add("center-box");
+
         let img = document.createElement("img");
         img.src = imgArr[i];
-        elem.innerHTML = `<img src="${imgArr[i]}" alt=""> ${more[i]}`;
+
+        let valueSpan = document.createElement("span");
+
+        elem.appendChild(img);
+        elem.appendChild(valueSpan);
         moreDiv.appendChild(elem);
     }
+
     const descTxt = document.createElement("p");
     descTxt.classList.add("description", "center-box");
-    descTxt.textContent = description;
 
     weatherDiv.appendChild(informationDiv);
     weatherDiv.appendChild(tempSpan);
@@ -56,4 +63,24 @@ export function createWeatherCard(city, sky, temp, more, description) {
     main.appendChild(weatherDiv);
 
     return weatherDiv;
+}
+
+function setWeatherData(weatherDiv, city, sky, temp, more, description) {
+    const citySpan = weatherDiv.querySelector('#city');
+    const skySpan = weatherDiv.querySelector('#sky');
+    const tempSpan = weatherDiv.querySelector('.temperature');
+    const moreDiv = weatherDiv.querySelector('.more');
+    const descTxt = weatherDiv.querySelector('.description');
+
+    if (tempSpan) tempSpan.textContent = `${temp}°C`;
+    if (citySpan) citySpan.textContent = city;
+    if (skySpan) skySpan.textContent = sky;
+    if (descTxt) descTxt.textContent = description;
+
+    const elems = moreDiv.querySelectorAll('.center-box');
+    for (let i = 0; i < 4; i++) {
+        const valueSpan = elems[i].querySelector('span');
+        console.log(more[i]);
+        valueSpan.textContent = more[i];
+    }
 }
