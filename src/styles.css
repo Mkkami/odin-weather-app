@@ -3,22 +3,44 @@
     padding: 0;
     box-sizing: border-box;
 
-    border: 1px solid black;
+    /* border: 1px solid black; */
+
+    --white-color: #eef3f9;
+    --light-blue: #b3cde4;
+    --blue: #537692;
+    --dark-blue: #1d3f58;
+}
+
+body {
+    background-color: var(--light-blue);
+    font-family: sans-serif;
 }
 
 header {
-    padding: 1em;
+    padding: 1rem;
+    background-color: var(--blue);
 }
 
 form > div {
     display: flex;
     justify-content: center;
+    gap: 1rem;
 }
 
 input {
     min-width: 0;
     flex-shrink: 1;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5rem 1rem;
+
 }
+
+input:focus {
+    outline: 2px solid var(--dark-blue);
+    
+}
+
 form button {
     flex-shrink: 0;
     background-image: url("img/search.svg");
@@ -28,10 +50,15 @@ form button {
     width: 4rem;
 
     cursor:pointer;
+    border: none;
+
+    background-color: var(--dark-blue);
+    border-radius: 6px;
+
 }   
 
 form button:hover {
-    background-color: darkgray;
+    background-color: var(--light-blue);
 }
 
 form img {
@@ -44,13 +71,18 @@ main {
     display: flex;
     justify-content: center;
     align-items: center ;
+    background-color: var(--light-blue);
 }
 
 .weather {
     display: grid;
-    grid-template-columns: repeat(2, minmax(50%, 150px));
+    grid-template-columns: minmax(40%, 160px) minmax(60%, 200px);
     grid-template-rows: repeat(3, minmax(150px, 33%));
     justify-content: center;
+    background-color: var(--blue);
+    color: var(--white-color);
+    box-shadow: 0 0 50px var(--dark-blue);
+    border-radius: 0 0 50px 50px;
 }
 
 .information {
@@ -61,6 +93,8 @@ main {
     justify-content: space-between;
     gap: 1rem;
     padding: 0 1rem;
+    background-color: var(--dark-blue);
+    box-shadow: 0 2px 2px  black;
 }
 
 #city {
@@ -90,10 +124,16 @@ main {
     grid-template-rows: repeat(2, 50%);
 }
 
+.more span {
+    text-wrap: nowrap;
+
+}
+
 
 .more img {
     height: 2rem;
     width: 2rem;
+    color: var(--white-color);
 }
 
 .description {
@@ -104,7 +144,9 @@ main {
 .error-message[data-visible] {
     display: block;
     opacity: 1;
-    color: red;
+    color:maroon;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .error-message {
