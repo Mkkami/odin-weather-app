@@ -80,7 +80,6 @@ function setWeatherData(weatherDiv, city, sky, temp, more, description) {
     const elems = moreDiv.querySelectorAll('.center-box');
     for (let i = 0; i < 4; i++) {
         const valueSpan = elems[i].querySelector('span');
-        console.log(more[i]);
         valueSpan.textContent = more[i];
     }
 }

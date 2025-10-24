@@ -14,7 +14,6 @@ btn.addEventListener('click', async (e) =>  {
     e.preventDefault();
     let formdata = new FormData(form);
     city = formdata.get('city');
-    console.log(city);
     await fetchWeather(city);
 
     form.reset();
@@ -32,8 +31,6 @@ async function fetchWeather(city) {
     }
     
     const data = await response.json();
-    console.log(data);
-    console.log(data.days[0])
     updateWeather(data);
     displayError(false);
     updateWeatherCard(w.toArray());
@@ -51,7 +48,6 @@ function updateWeather(data) {
         day.windspeed,
         day.description
     );
-    console.log(w);
 }
 
 function displayError(state, message="") {
