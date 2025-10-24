@@ -76,7 +76,7 @@ main {
 
 .weather {
     display: grid;
-    grid-template-columns: minmax(40%, 160px) minmax(60%, 200px);
+    grid-template-columns: minmax(40%, 200px) minmax(60%, 240px);
     grid-template-rows: repeat(3, minmax(150px, 33%));
     justify-content: center;
     background-color: var(--blue);
@@ -107,7 +107,6 @@ main {
 
 .temperature {
     font-size: 3rem;
-
 }
 
 .center-box {
@@ -129,7 +128,6 @@ main {
 
 }
 
-
 .more img {
     height: 2rem;
     width: 2rem;
@@ -139,10 +137,10 @@ main {
 .description {
     grid-row: 3;
     grid-column: span 2;
+    padding: 0 2rem;
 }
 
-.error-message[data-visible] {
-    display: block;
+.error-message[data-visible="true"] {
     opacity: 1;
     color:maroon;
     font-size: 1.2rem;

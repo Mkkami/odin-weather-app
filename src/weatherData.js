@@ -1,12 +1,12 @@
 export default class Weather {
     constructor(city, sky, temp, tempFeels, humid, rain, wind, desc) {
-        this.city = city;
+        this.city = city ? city.charAt(0).toUpperCase() + city.slice(1) : city;
         this.sky = sky;
-        this.temp = temp;
-        this.tempFeels = tempFeels;
-        this.humidity = humid;
-        this.rain = rain;
-        this.wind = wind;
+        this.temp = `${temp}°C`;
+        this.tempFeels = `${tempFeels}°C`;
+        this.humidity = `${humid}%`;
+        this.rain = `${rain} mm`;
+        this.wind = `${wind} km/h`;
         this.desc = desc;
     }
 

@@ -72,7 +72,7 @@ function setWeatherData(weatherDiv, city, sky, temp, more, description) {
     const moreDiv = weatherDiv.querySelector('.more');
     const descTxt = weatherDiv.querySelector('.description');
 
-    if (tempSpan) tempSpan.textContent = `${temp}°C`;
+    if (tempSpan) tempSpan.textContent = temp;
     if (citySpan) citySpan.textContent = city;
     if (skySpan) skySpan.textContent = sky;
     if (descTxt) descTxt.textContent = description;
